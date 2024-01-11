@@ -1,0 +1,188 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/receiptNote.css">
+  </head>
+  <body>
+    <div class="receipt-note-wrapper">
+      <div class="head">
+        {{!-- đơn vị,bộ phận --}}
+        <div>
+          <div>
+            <label class="text-strong">Đơn vị:</label>
+            {{!-- //////////////////////// --}}
+            <input type="text" id="donvi"
+              placeholder=".............................................." />
+          </div>
+          <div>
+            <label class="text-strong">Bộ phận:</label>
+            {{!-- //////////////////////////////////// --}}
+            <input type="text" id="part"
+              placeholder="........................................" />
+          </div>
+        </div>
+        {{!-- Mẫu --}}
+        <div class="pattern-01">
+          <p class="text-strong">Mẫu số 01 - VT</p>
+          <p class="text-small">(Ban hành theo Thông tư số 200/2014/TT-BTC
+            <br>Ngày 22/12/2014 của Bộ Tài chính)</p>
+        </div>
+      </div>
+
+      <h3 class="title">PHIẾU NHẬP KHO</h3>
+      {{!-- thông tin cơ bản của phiếu --}}
+      <div class="basic-if-receipt">
+        <div></div>
+        <div>
+          <label>Ngày</label>
+          <input type="number" id="receipt-date" placeholder="......." />
+          <label>tháng</label>
+          <input type="number" id="receipt-month" placeholder="......." />
+          <label>năm</label>
+          <input type="number" id="receipt-year" placeholder="......." /><br>
+          <label>Số:</label>
+          <input type="number" id="receipt-no"
+            placeholder="...................................................." />
+        </div>
+        <div>
+          <label>Nợ</label>
+          <input type="number" id="payable"
+            placeholder="................................................................." /><br>
+          <label>Có</label>
+          <input type="number" id="co"
+            placeholder=".................................................................." />
+        </div>
+      </div>
+
+      {{!-- thông tin chi tiết của phiếu --}}
+      <div class="detail-if-receipt">
+        <div>
+          <label>- Họ và tên người giao:</label>
+          <input type="text" id="deliverer_name"
+            placeholder=".................................................................................................................." />
+        </div>
+        <div>
+          <label>- Theo</label>
+          <input type="text" id="according-law"
+            placeholder="............................." />
+          <label>số</label>
+          <input type="text" id="number-law"
+            placeholder=".............................." />
+          <label>ngày</label>
+          <input type="number" id="date-law" placeholder="......." />
+          <label>tháng</label>
+          <input type="number" id="month-law" placeholder="......." />
+          <label>năm</label>
+          <input type="number" id="year-law" placeholder="......." />
+          <label>của</label>
+          <input type="text" id="of-law"
+            placeholder="........................." />
+        </div>
+        <div>
+          <label>Nhập tại kho:</label>
+          <input type="text" id="receive-warehouse-name"
+            placeholder="............................................................." />
+          <label>địa điểm</label>
+          <input type="text" id="receive-warehouse-place"
+            placeholder=".................................................................." />
+        </div>
+        {{!-- bảng thong tin sản phẩm nhâp --}}
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Tên, nhãn hiệu, quy cách vật tư của dụng cụ, sản phẩm, hàng
+                hóa </th>
+              <th>Mã số</th>
+              <th>Đơn vị</th>
+              <th>Số lượng theo chứng từ</th>
+              <th>Số lượng thực nhận</th>
+              <th>Đơn giá</th>
+              <th>Thành tiền</th>
+              <th>Hành Động</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><input type="text" name="product-name[]"></td>
+              <td><input type="number" name="product-id[]"></td>
+              <td><input type="text" name="unit-money[]"></td>
+              <td><input type="number" name="quantity-according-doc[]"></td>
+              <td><input type="number" name="actual-quantity-received[]"></td>
+              <td><input type="number" name="unit-price[]"></td>
+              <td><input type="number" name="total-price[]"></td>
+              <td><button >Remove</button></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Cộng</td>
+              <td>x</td>
+              <td>x</td>
+              <td>x</td>
+              <td>x</td>
+              <td>x</td>
+              <td id="total-price-number"></td>
+              <td><button onclick="addRow()">Add Row</button></td>
+
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="under-table">
+          <div>
+            <label>- Tổng số tiền (viết bằng chữ):</label><br>
+
+            <input type="text" id="total-price-string"
+              placeholder="........................................................................................................" />
+          </div>
+          <div>
+
+            <label>- Số chứng từ gốc đi kèm theo:</label><br>
+            <input type="text" id="original-document-number-attached"
+              placeholder="........................................................................................................" />
+          </div>
+        </div>
+      </div>
+
+      <div class="date-signature">
+        <label>Ngày</label>
+        <input type="number" id="signature-date" placeholder="......." />
+        <label>tháng</label>
+        <input type="number" id="signature-month" placeholder="......." />
+        <label>năm</label>
+        <input type="number" id="signature-year" placeholder="......." />
+      </div>
+      <div class="signature">
+        <div>
+          <label class="text-strong">Người lập phiếu</label><br>
+
+          <input type="text" id="receipt-creator"
+            placeholder="(Ký, họ tên)" />
+        </div>
+        <div>
+          <label class="text-strong">Người giao hàng</label><br>
+
+          <input type="text" id="deliverer-name"
+            placeholder="(Ký, họ tên)" />
+        </div>
+        <div>
+          <label class="text-strong">Thủ kho</label><br>
+
+          <input type="text" id="storekeeper"
+            placeholder="(Ký, họ tên)" />
+        </div>
+        <div>
+          <label class="text-strong">Kế toán trưởng</label><br>
+
+          <input type="text" id="chief-accountant"
+            placeholder="(Ký, họ tên)" />
+        </div>
+      </div>
+
+    </div>
+
+    <script src="/js/receiptNode.js"></script>
+  </body>
+</html>
+
+{{!-- <button onclick="getFormData()">Get Form Data</button> --}}
