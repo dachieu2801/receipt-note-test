@@ -1,6 +1,3 @@
-const goods_receipt_note: string = 'goods_receipt_note'
-
-
 export default {
   //------------/models/goodsReceiptNote---------
   // getReceiptNotebyId 

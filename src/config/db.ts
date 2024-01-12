@@ -9,6 +9,7 @@ const pool = new Pool({
   port: Number(env.PORT_POST),
 });
 
+
 export default {
   connect: async () => {
     try {
@@ -19,4 +20,6 @@ export default {
     }
   },
   pool: () => pool,
-};
+}
+
+

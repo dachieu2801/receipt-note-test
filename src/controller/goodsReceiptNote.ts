@@ -8,11 +8,11 @@ export default {
   getAllReceiptNote: async (req: Request, res: Response) => {
     try {
       const result = await pool.query('SELECT * FROM goods_receipt_note')
-      res.status(200).json(result.rows)
+      res.status(200).json({ status: 'success', data: result.rows })
     } catch (err) {
       console.log('Error get all receipt-------------------------------', err)
 
-      res.status(500).json({ message: 'Server Has Error' })
+      res.status(500).json({ status: 'failed', message: 'Server Has Error' })
     }
   },
   getById: async (req: Request, res: Response) => {
@@ -20,13 +20,13 @@ export default {
       const receipt_no: number = Number(req.params.receipt_no)
       const results = await receiptNoteModel.getReceiptNotebyId(receipt_no)
       if (results.length === 1) {
-        res.status(200).json(results)
+        res.status(200).json({ status: 'success', data: results })
       } else {
-        res.status(500).json({ message: 'Can\'t find receipt' })
+        res.status(500).json({ status: 'failed', message: 'Can\'t find receipt' })
       }
     } catch (err) {
       console.log('Error get receipt by receipt_no-------------------------------', err)
-      res.status(500).json({ message: 'Server Has Error' })
+      res.status(500).json({ status: 'failed', message: 'Server Has Error' })
     }
   },
 

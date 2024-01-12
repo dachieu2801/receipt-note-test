@@ -1,4 +1,6 @@
-# create table products 
+# create 3 table below before run code
+
+1. create table products 
 CREATE TABLE products (
   product_id SERIAL PRIMARY KEY,
   product_name VARCHAR(255) NOT NULL,
@@ -6,7 +8,7 @@ CREATE TABLE products (
   quantity INT  NOT NULL CHECK (quantity > 0)
 )
 
-# create table goods_receipt_note 
+2. create table goods_receipt_note 
 CREATE TABLE goods_receipt_note (
   receipt_no SERIAL PRIMARY KEY,
   donvi VARCHAR(255)  NOT NULL,
@@ -27,7 +29,7 @@ CREATE TABLE goods_receipt_note (
   chief_accountant VARCHAR(255)  NOT NULL
 )
 
-# create table receipt_details 
+3. create table receipt_details 
 CREATE TABLE receipt_details (
   detail_id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   receipt_no INT REFERENCES goods_receipt_note(receipt_no),
