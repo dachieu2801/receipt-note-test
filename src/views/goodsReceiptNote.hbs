@@ -111,7 +111,7 @@
               <td><input type="number" name="actual-quantity-received[]"></td>
               <td><input type="number" name="unit-price[]"></td>
               <td><input type="number" name="total-price[]"></td>
-              <td><button >Remove</button></td>
+              <td><button onclick="removeRow(this)">Remove</button></td>
             </tr>
             <tr>
               <td></td>
@@ -161,7 +161,6 @@
         </div>
         <div>
           <label class="text-strong">Người giao hàng</label><br>
-
           <input type="text" id="deliverer-name"
             placeholder="(Ký, họ tên)" />
         </div>

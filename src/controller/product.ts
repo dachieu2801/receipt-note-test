@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import productModel from '../models/products'
+import productModel from '../services/products'
 
 export default {
   createProduct: async (req: Request, res: Response) => {
@@ -7,7 +7,7 @@ export default {
       const product = req.body
       const product_id = await productModel.createProduct(product);
       if (product_id) {
-        res.status(200).json({ message: 'Create success' });
+        res.status(200).json({ message: 'Create success', data: product});
       } else {
         res.status(500).json({ message: 'Failed to create product' })
       }
