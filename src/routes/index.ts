@@ -3,7 +3,7 @@ import goodsReceiptNoteRoute from './goodsReceiptNote';
 
 function route(app: any) {
   //test 
-  app.post('/product', productController.createProduct);
+  // app.post('/product', productController.createProduct);
   //recetpt
   app.use('/receipt', goodsReceiptNoteRoute)
   app.use('/', (req: any, res: any) => {

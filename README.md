@@ -42,7 +42,9 @@ CREATE TABLE receipt_details (
 
 # routes in project
 
-+  '/receipt' (get) : get form receipt
-+  '/receipt/creat-receipt' (post) : create receipt from form submission
-+  '/receipt/get-receipt:receipt_no' (get) : get receipt from receipt_no
-+  '/receipt/get-allreceipt' (get) : get all receipt  
+1. '/receipt' (get) : get form receipt   
++ notes:type Enter tosubmit
+
+2. '/receipt/creat-receipt' (post) : create receipt from form submission
+3. '/receipt/get-receipt:receipt_no' (get) : get receipt from receipt_no
+4. '/receipt/get-allreceipt' (get) : get all receipt  
